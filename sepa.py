@@ -43,7 +43,7 @@ if uploaded_file is not None:
             "name": f"{row['Vorname']} {row['Name']}",
             "IBAN": row['IBAN'].replace(" ", ""),
             #"BIC": row['BIC'] if pd.notnull(row['BIC']) else "Unknown BIC",  # Fallback falls BIC fehlt
-            "amount": int(row['amount'] * 100),  # Betrag in Euro in Cent umrechnen
+            "amount": int(round(row['amount'] * 100)),  # Betrag in Euro in Cent umrechnen
             "type": "RCUR",  # FRST, RCUR, OOFF, FNAL (wiederkehrende Lastschrift)
             "collection_date": datetime.date.today(),
             "mandate_id": row['mandate_id'],
@@ -95,6 +95,4 @@ if uploaded_file is not None:
 # with open("sepa_transfer_mieten.xml", "wb") as xml_file:
 #     xml_file.write(xml_content)
 
-# print("SEPA-XML-Datei erfolgreich erstellt und gespeichert!")
 
-# Hier noch weitere Übungen.
