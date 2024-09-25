@@ -53,23 +53,6 @@ if uploaded_file is not None:
         # Zahlung zum SEPA-Transfer hinzufügen
         sepa.add_payment(payment)
 
-# test_iban = "NL50 BANK 1234 5678 90"
-
-# # Zahlung hinzufügen
-# payment = {
-#     "name": "Test von Testenstein",
-#     "IBAN": test_iban.replace(" ", ""),
-#     "BIC": "BANKNL2A",
-#     "amount": 5000,  # in cents
-#     "type" : "RCUR",
-#     "collection_date" : datetime.date.today(),
-#     "mandate_id" : "text29d",
-#     "mandate_date" : datetime.date.today() - datetime.timedelta(days=100),
-#     "description": "Test transaction",
-#     #"execution_date": datetime.date.today() + datetime.timedelta(days=2),
-# }
-
-#sepa.add_payment(payment)
 
     # Export SEPA-XML
     xml_content = sepa.export(validate = True)
@@ -91,8 +74,7 @@ if uploaded_file is not None:
     st.code(pretty_xml_as_string)
 
 
+
 # # Save XML-file
 # with open("sepa_transfer_mieten.xml", "wb") as xml_file:
 #     xml_file.write(xml_content)
-
-# A new change is done.
